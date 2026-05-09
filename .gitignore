@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+env37/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Data cache (keep structure)
+data/*.csv
+!data/.gitkeep
+
+# Reports
+reports/
+*.json
+
+# Credentials / secrets
+.env
+.env.local
+*.pem
+*.key
+config/secrets.json
+
+# Python
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+*.egg
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Git
+.git/
