@@ -58,11 +58,11 @@ class DualMAStrategy(BaseStrategy):
         if len(self) < self.params.slow_period:
             return None
             
-        if self.crossover > 0:
+        if self.crossover[0] > 0:
             self.signal_reason = f'金叉：短期MA{self.params.fast_period}上穿长期MA{self.params.slow_period}'
             return 'BUY'
             
-        elif self.crossover < 0:
+        elif self.crossover[0] < 0:
             self.signal_reason = f'死叉：短期MA{self.params.fast_period}下穿长期MA{self.params.slow_period}'
             return 'SELL'
             
@@ -114,11 +114,11 @@ class DualMAWithStopLoss(BaseStrategy):
         if len(self) < self.params.slow_period:
             return None
             
-        if self.crossover > 0 and not self.position:
+        if self.crossover[0] > 0 and not self.position:
             self.signal_reason = f'金叉买入，止损设置{self.params.stop_loss_pct*100}%'
             return 'BUY'
             
-        elif self.crossover < 0 and self.position:
+        elif self.crossover[0] < 0 and self.position:
             self.signal_reason = '死叉卖出'
             return 'SELL'
             
@@ -191,15 +191,15 @@ class DualMACrossIndex(DualMAStrategy):
                 return 'SELL'
                 
             elif index_trend and not self.position:
-                if self.crossover > 0:
+                if self.crossover[0] > 0:
                     self.signal_reason = f'金叉买入，指数上升趋势'
                     return 'BUY'
         else:
-            if self.crossover > 0 and not self.position:
+            if self.crossover[0] > 0 and not self.position:
                 self.signal_reason = '金叉买入'
                 return 'BUY'
                 
-            elif self.crossover < 0 and self.position:
+            elif self.crossover[0] < 0 and self.position:
                 self.signal_reason = '死叉卖出'
                 return 'SELL'
                 
